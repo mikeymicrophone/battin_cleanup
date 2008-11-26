@@ -1,0 +1,22 @@
+<h1>Listing bans</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Restaurant</th>
+  </tr>
+
+<% for ban in @bans %>
+  <tr>
+    <td><%=h ban.user_id %></td>
+    <td><%=h ban.restaurant_id %></td>
+    <td><%= link_to 'Show', ban %></td>
+    <td><%= link_to 'Edit', edit_ban_path(ban) %></td>
+    <td><%= link_to 'Destroy', ban, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ban', new_ban_path %>

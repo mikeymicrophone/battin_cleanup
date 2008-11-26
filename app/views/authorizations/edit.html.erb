@@ -1,0 +1,20 @@
+<h1>Editing authorization</h1>
+
+<% form_for(@authorization) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :list_id %><br />
+    <%= f.text_field :list_id %>
+  </p>
+  <p>
+    <%= f.label :restaurant_id %><br />
+    <%= f.text_field :restaurant_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @authorization %> |
+<%= link_to 'Back', authorizations_path %>

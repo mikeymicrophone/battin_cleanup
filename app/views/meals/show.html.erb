@@ -1,0 +1,23 @@
+<p>
+  <b>Restaurant:</b>
+  <%=h @meal.restaurant_id %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%=h @meal.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%=h @meal.end_time %>
+</p>
+
+<p>
+  <b>Capacity:</b>
+  <%=h @meal.capacity %>
+</p>
+
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'Back', meals_path %>
