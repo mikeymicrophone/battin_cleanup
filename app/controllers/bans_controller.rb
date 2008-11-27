@@ -25,6 +25,9 @@ class BansController < ApplicationController
   # GET /bans/new.xml
   def new
     @ban = Ban.new
+    
+    @users = User.all.map { |u| [u.name, u.id] }
+    @restaurants = Restaurant.all.map { |r| [r.name, r.id] }
 
     respond_to do |format|
       format.html # new.html.erb

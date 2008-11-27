@@ -1,55 +1,35 @@
-<h1>New user</h1>
+<h1>join our community</h1>
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.label :first_name, 'full name' %><br />
+    <%= f.text_field :first_name, :size => 14 %>
+    <%= f.text_field :middle_name, :size => 14 %>
+    <%= f.text_field :last_name, :size => 14 %>
   </p>
   <p>
-    <%= f.label :middle_name %><br />
-    <%= f.text_field :middle_name %>
+    <%= f.text_field :email %><%= f.label :email, 'email' %>
   </p>
   <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.password_field :password, :size => 20 %><%= f.label :password, 'password' %>
   </p>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :phone, :size => 10 %><%= f.label :phone, 'phone number' %>
   </p>
   <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.text_field :address %><%= f.label :address, 'address' %>
   </p>
   <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address2 %><%= f.label :address2, 'line 2' %>
   </p>
   <p>
-    <%= f.label :address2 %><br />
-    <%= f.text_field :address2 %>
+    <%= f.text_field :city, :size => 14 %><%= f.label :city, 'city' %>
+<%= f.text_field :state, :size => 2 %><%= f.label :state, 'state' %>
+    <%= f.text_field :zip, :size => 5 %><%= f.label :zip, 'zip' %>
   </p>
   <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </p>
-  <p>
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "join" %>
   </p>
 <% end %>
-
-<%= link_to 'Back', users_path %>

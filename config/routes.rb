@@ -12,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :restaurants
 
   map.resources :users
+  
+  map.root :controller => 'meals', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

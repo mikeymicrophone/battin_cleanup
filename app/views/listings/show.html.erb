@@ -1,13 +1,4 @@
 <p>
-  <b>User:</b>
-  <%=h @listing.user_id %>
+  <%= link_to_name @listing.user %> is on 
+  <%= link_to_name @listing.list %>
 </p>
-
-<p>
-  <b>List:</b>
-  <%=h @listing.list_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>

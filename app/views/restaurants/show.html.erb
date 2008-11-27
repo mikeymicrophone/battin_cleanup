@@ -1,48 +1,16 @@
 <p>
-  <b>Name:</b>
-  <%=h @restaurant.name %>
+  <h2><%=h @restaurant.name %></h2>
 </p>
 
 <p>
-  <b>Phone:</b>
   <%=h @restaurant.phone %>
+  <%= mail_to @restaurant.email, @restaurant.email, :encode => :javascript %>
 </p>
 
 <p>
-  <b>Email:</b>
-  <%=h @restaurant.email %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%=h @restaurant.user_id %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%=h @restaurant.address %>
-</p>
-
-<p>
-  <b>Address2:</b>
-  <%=h @restaurant.address2 %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%=h @restaurant.city %>
-</p>
-
-<p>
-  <b>State:</b>
+  <%=h @restaurant.address %><br>
+  <%=h @restaurant.address2 %><br>
+  <%=h @restaurant.city %>, 
   <%=h @restaurant.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
   <%=h @restaurant.zip %>
 </p>
-
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>

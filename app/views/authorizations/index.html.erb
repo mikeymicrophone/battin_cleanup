@@ -1,4 +1,4 @@
-<h1>Listing authorizations</h1>
+<h1>authorizations</h1>
 
 <table>
   <tr>
@@ -8,11 +8,9 @@
 
 <% for authorization in @authorizations %>
   <tr>
-    <td><%=h authorization.list_id %></td>
-    <td><%=h authorization.restaurant_id %></td>
+    <td><%= link_to_name authorization.list %></td>
+    <td><%= link_to_name authorization.restaurant %></td>
     <td><%= link_to 'Show', authorization %></td>
-    <td><%= link_to 'Edit', edit_authorization_path(authorization) %></td>
-    <td><%= link_to 'Destroy', authorization, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

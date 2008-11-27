@@ -1,4 +1,4 @@
-<h1>Listing meals</h1>
+<h1>scheduled meals for approved patrons</h1>
 
 <table>
   <tr>
@@ -10,17 +10,11 @@
 
 <% for meal in @meals %>
   <tr>
-    <td><%=h meal.restaurant_id %></td>
+    <td><%= link_to_name meal.restaurant %></td>
     <td><%=h meal.start_time %></td>
     <td><%=h meal.end_time %></td>
     <td><%=h meal.capacity %></td>
     <td><%= link_to 'Show', meal %></td>
-    <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-    <td><%= link_to 'Destroy', meal, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New meal', new_meal_path %>

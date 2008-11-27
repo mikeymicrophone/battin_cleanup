@@ -25,6 +25,8 @@ class MealsController < ApplicationController
   # GET /meals/new.xml
   def new
     @meal = Meal.new
+    
+    @restaurants = Restaurant.all.map { |r| [r.name, r.id] }
 
     respond_to do |format|
       format.html # new.html.erb

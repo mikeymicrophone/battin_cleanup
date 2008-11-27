@@ -1,13 +1,3 @@
 <p>
-  <b>List:</b>
-  <%=h @authorization.list_id %>
+  the <%= pluralize @authorization.list.listings.count, 'member' %> of <%= link_to_name @authorization.list %> are authorized to eat at <%= link_to_name @authorization.restaurant %>
 </p>
-
-<p>
-  <b>Restaurant:</b>
-  <%=h @authorization.restaurant_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_authorization_path(@authorization) %> |
-<%= link_to 'Back', authorizations_path %>

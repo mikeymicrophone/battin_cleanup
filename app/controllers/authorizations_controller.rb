@@ -25,6 +25,9 @@ class AuthorizationsController < ApplicationController
   # GET /authorizations/new.xml
   def new
     @authorization = Authorization.new
+    
+    @lists = List.all.map { |l| [l.name, l.id] }
+    @restaurants = Restaurant.all.map { |r| [r.name, r.id] }
 
     respond_to do |format|
       format.html # new.html.erb

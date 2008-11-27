@@ -24,7 +24,10 @@ class ListingsController < ApplicationController
   # GET /listings/new
   # GET /listings/new.xml
   def new
-    @listing = Listing.new
+    @listing = Listing.new params[:listing]
+    
+    @lists = List.all.map { |l| [l.name, l.id] }
+    @users = User.all.map { |u| [u.name, u.id] }
 
     respond_to do |format|
       format.html # new.html.erb

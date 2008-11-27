@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>battin cleanup</title>
+  <%= stylesheet_link_tag 'cleanup' %>
+</head>
+<body>
+	<div id="navigation">
+		<li class="nav"><%= link_to 'users', users_path %></li>
+		<li class="nav"><%= link_to 'restaurants', restaurants_path %></li>
+		<li class="nav"><%= link_to 'lists', lists_path %></li>
+		<li class="nav"><%= link_to 'authorizations', authorizations_path %></li>
+		<li class="nav"><%= link_to 'listings', listings_path %></li>
+		<li class="nav"><%= link_to 'meals', meals_path %></li>
+		<li class="nav"><%= link_to 'bans', bans_path %></li>
+	</div>
+	<div class="clearfix"></div>
+	<%= yield %>
+</body>
+</html>

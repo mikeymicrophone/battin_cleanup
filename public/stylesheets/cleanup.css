@@ -1,0 +1,19 @@
+.nav {
+	list-style-type:none;
+	float:left;
+	font-size: 1.15em;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-variant: small-caps;
+}
+.nav a {
+	color: #583C94;
+}
+
+.nav a:visited {
+	color: #0A990F;
+}
+
+.clearfix {
+	clear:both;
+}

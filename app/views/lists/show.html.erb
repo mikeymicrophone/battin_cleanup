@@ -3,6 +3,8 @@
   <%=h @list.name %>
 </p>
 
+<% @list.users.each do |u| %>
+  <%= link_to_name u %>
+<% end %>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= link_to 'add someone', new_listing_path(:listing => {:list_id => @list}) %>

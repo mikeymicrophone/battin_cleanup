@@ -1,36 +1,20 @@
-<h1>Listing restaurants</h1>
+<h1>restaurants</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>User</th>
-    <th>Address</th>
-    <th>Address2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-  </tr>
 
 <% for restaurant in @restaurants %>
   <tr>
-    <td><%=h restaurant.name %></td>
+    <td><%= link_to_name restaurant %></td>
     <td><%=h restaurant.phone %></td>
-    <td><%=h restaurant.email %></td>
-    <td><%=h restaurant.user_id %></td>
+    <td><%= mail_to restaurant.email, restaurant.email, :encode => :javascript %></td>
     <td><%=h restaurant.address %></td>
     <td><%=h restaurant.address2 %></td>
     <td><%=h restaurant.city %></td>
     <td><%=h restaurant.state %></td>
-    <td><%=h restaurant.zip %></td>
-    <td><%= link_to 'Show', restaurant %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New restaurant', new_restaurant_path %>
+<%= link_to 'new restaurant', new_restaurant_path %>

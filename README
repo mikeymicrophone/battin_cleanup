@@ -5,3 +5,10 @@ once a user is registered, she can be added to lists.
 restauranteers can authorize lists to eat their leftovers.
 
 then, restaurants can post info about how much food they have and when it should be picked up.
+
+enhancements under immediate consideration:
+* creating listings and authorizations should be controlled by a permissions system
+* bans should have an optional end date
+* meals should have an optional description
+* patrons should be able to rsvp to meals
+* geographic considerations should be incorporated

@@ -1,18 +1,17 @@
-<h1>New authorization</h1>
+<h1>patrons on this list will be invited to share meals at this restaurant</h1>
+<h2>with the exception of patrons who have been banned from this restaurant</h2>
 
 <% form_for(@authorization) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :list_id %><br />
-    <%= f.text_field :list_id %>
+    <%= f.select :list_id, @lists %><%= f.label :list_id, 'list' %>
   </p>
   <p>
-    <%= f.label :restaurant_id %><br />
-    <%= f.text_field :restaurant_id %>
+    <%= f.select :restaurant_id, @restaurants %><%= f.label :restaurant_id, 'restaurant' %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "authorize" %>
   </p>
 <% end %>
 

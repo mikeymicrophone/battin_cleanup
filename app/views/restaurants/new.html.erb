@@ -1,43 +1,24 @@
-<h1>New restaurant</h1>
+<h1>add a restaurant</h1>
 
 <% form_for(@restaurant) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 40 %><%= f.label :name, 'name of restaurant' %>
   </p>
   <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone %><%= f.label :phone, 'phone number' %>
   </p>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email %><%= f.label :email, 'email address' %><br>
   </p>
+  <%= f.hidden_field :user_id %>
   <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-  <p>
-    <%= f.label :address2 %><br />
-    <%= f.text_field :address2 %>
-  </p>
-  <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </p>
-  <p>
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
+    <%= f.text_field :address %><%= f.label :address, 'address' %><br>
+    <%= f.text_field :address2 %><%= f.label :address2, 'line 2' %><br>
+    <%= f.text_field :city, :size => '13' %><%= f.label :city, 'city' %>
+    <%= f.text_field :state, :size => 2 %><%= f.label :state, 'state' %>
+    <%= f.text_field :zip, :size => 5 %><%= f.label :zip, 'zip code' %>
   </p>
   <p>
     <%= f.submit "Create" %>

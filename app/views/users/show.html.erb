@@ -1,58 +1,5 @@
 <p>
-  <b>First name:</b>
-  <%=h @user.first_name %>
+  <%=h @user.first_name %> <%=h @user.middle_name %> <%=h @user.last_name %>
 </p>
 
-<p>
-  <b>Middle name:</b>
-  <%=h @user.middle_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%=h @user.last_name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%=h @user.email %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%=h @user.phone %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%=h @user.address %>
-</p>
-
-<p>
-  <b>Address2:</b>
-  <%=h @user.address2 %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%=h @user.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%=h @user.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%=h @user.zip %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%=h @user.password %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -1,27 +1,21 @@
-<h1>New meal</h1>
+<h1>schedule a meal</h1>
 
 <% form_for(@meal) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :restaurant_id %><br />
-    <%= f.text_field :restaurant_id %>
+    <%= f.select :restaurant_id, @restaurants %><%= f.label :restaurant_id, 'restaurant' %>
   </p>
   <p>
-    <%= f.label :start_time %><br />
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :start_time %><%= f.label :start_time, 'starting at' %>
   </p>
   <p>
-    <%= f.label :end_time %><br />
-    <%= f.datetime_select :end_time %>
+    <%= f.datetime_select :end_time %><%= f.label :end_time, 'ending at' %>
   </p>
   <p>
-    <%= f.label :capacity %><br />
-    <%= f.text_field :capacity %>
+    <%= f.text_field :capacity, :size => 5 %><%= f.label :capacity, 'how many can be fed?' %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "publish" %>
   </p>
 <% end %>
-
-<%= link_to 'Back', meals_path %>
