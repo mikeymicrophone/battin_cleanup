@@ -1,3 +1,15 @@
+#title {
+	font-family: arial;
+	font-style: italic;
+	font-size: 4em;
+	text-align: center;
+}
+
+#definition {
+	font-size: 1.4em;
+	margin-left: 60px;
+}
+
 .nav {
 	list-style-type:none;
 	float:left;
