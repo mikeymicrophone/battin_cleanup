@@ -1,20 +1,14 @@
-<h1>Listing listings</h1>
+<h1>listings</h1>
 
 <table>
-  <tr>
-    <th>User</th>
-    <th>List</th>
-  </tr>
 
 <% for listing in @listings %>
   <tr>
-    <td><%=h listing.user_id %></td>
-    <td><%=h listing.list_id %></td>
-    <td><%= link_to 'Show', listing %></td>
+    <td><%= link_to_name listing.user %></td>
+    <td><%= link_to_name listing.list %></td>
+    <td><%= link_to 'show', listing %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New listing', new_listing_path %>
+<%= link_to 'new listing', new_listing_path %>

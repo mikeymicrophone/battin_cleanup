@@ -7,7 +7,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :listings
 
-  map.resources :lists
+  map.resources :lists do |list|
+    list.resources :users
+    list.resources :authorizations
+  end
 
   map.resources :restaurants
 

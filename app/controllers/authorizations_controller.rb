@@ -2,7 +2,11 @@ class AuthorizationsController < ApplicationController
   # GET /authorizations
   # GET /authorizations.xml
   def index
-    @authorizations = Authorization.find(:all)
+    @authorizations = if params[:list_id]
+      List.find(params[:list_id]).authorizations
+    else
+      Authorization.find(:all)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.find(:all)
-
+    @users = if params[:list_id]
+      List.find(params[:list_id]).users
+    else
+      User.find(:all)
+    end
+      
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }

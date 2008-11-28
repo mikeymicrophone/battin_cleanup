@@ -30,4 +30,9 @@ class User < ActiveRecord::Base
   def approved_eateries
     eateries - banned_restaurants
   end
+  
+  def is_banned_from? restaurant
+    restaurant = restaurant.id if restaurant.is_a? ActiveRecord::Base
+    Ban.find_by_user_id_and_restaurant_id(id, restaurant)
+  end
 end

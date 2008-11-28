@@ -1,19 +1,11 @@
 <h1>patron lists</h1>
 
-<table>
-  <tr>
-    <th>list name</th>
-  </tr>
-
 <% for list in @lists %>
-  <tr>
-    <td><%=h list.name %></td>
-    <td><%= link_to 'Show', list %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-  </tr>
+  <ul>
+    <li><%= link_to_name list %>:<%= link_to(pluralize(list.listings.count, 'patron'), list_users_path(list)) %> authorized at <%= link_to(pluralize(list.authorizations.count, 'restaurant'), list_authorizations_path(list)) %></li>
+  </ul>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New list', new_list_path %>
+<%= link_to 'new list', new_list_path %>

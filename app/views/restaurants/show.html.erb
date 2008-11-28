@@ -14,3 +14,10 @@
   <%=h @restaurant.state %>
   <%=h @restaurant.zip %>
 </p>
+
+<% @restaurant.lists.each do |l| %>
+	<%= link_to_name l %>
+	<% l.users.each do |u| %>
+	  <li><%= link_to_name u unless u.is_banned_from?(@restaurant) %></li>
+	<% end %>
+<% end %>
