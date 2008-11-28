@@ -15,7 +15,7 @@
 }
 
 #about_page {
-	background-color: #A84619;
+	background-color: #87BFED;
 }
 
 #about {
@@ -34,9 +34,10 @@
 }
 
 #about p {
-	background-color: #B3D751;
-	margin-left: 40px;
+	background-color: #D09345;
+	margin-left: 20px;
 	padding: 5px;
+	padding-left: 20px;
 }
 
 #graphics {
