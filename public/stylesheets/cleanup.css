@@ -7,9 +7,84 @@
 
 #definition {
 	font-size: 1.4em;
-	margin-left: 60px;
+	margin-left: 13%;
 }
 
+#definition_second_line {
+	margin-left: 7%;
+}
+
+#about_page {
+	background-color: #A84619;
+}
+
+#about {
+	font-size: 1.25em;
+	margin: 20px;
+}
+
+#about em {
+	background-color: #FBF9D9;
+}
+
+#about strong {
+	font-size: 1.19em;
+	font-family: arial;
+	color: #20077A;
+}
+
+#about p {
+	background-color: #B3D751;
+	margin-left: 40px;
+	padding: 5px;
+}
+
+#graphics {
+	margin: 9%;
+}
+
+#graphics div {
+	
+}
+
+#put_leftovers {
+	font-size: 1.9em;
+	font-family: comic sans ms;
+	float:left;
+	width: 29%;
+	margin-right: 3%;
+	border: 2px solid white;
+	height: 180px;
+}
+
+#get_box {
+	font-size: 1.9em;
+	font-family: comic sans ms;
+	float:left;
+	width: 29%;
+	margin-right: 3%;
+	border: 2px solid white;
+	height: 180px;
+}
+
+#recycle_box {
+	font-size: 1.9em;
+	float: left;
+	width: 29%;
+	font-family: comic sans ms;
+    border: 2px solid white;
+	height: 180px;
+}
+
+.step {
+	font-size: .5em;
+	text-align: center;
+	margin-left: 10px;
+}
+
+#about li {
+	padding-bottom: 13px;
+}
 .nav {
 	list-style-type:none;
 	float:left;
