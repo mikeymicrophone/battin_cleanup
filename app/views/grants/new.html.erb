@@ -1,0 +1,21 @@
+<h1>authorize <%= @grant.user.name + ' ' if @grant.user %>to help manage <%= @grant.scope.name if @grant.scope %></h1>
+
+<% form_for(@grant) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :permission_id %><br />
+    <%= f.select :permission_id, @permissions %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.select :user_id, @users %>
+  </p>
+  <%= f.hidden_field :scope_type %>
+  <%= f.hidden_field :scope_id %>
+  <p>
+    <%= f.submit "permit" %>
+  </p>
+<% end %>
+
+<%= link_to 'existing permissions', grants_path %>

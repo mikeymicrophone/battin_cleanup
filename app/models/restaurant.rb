@@ -4,6 +4,9 @@ class Restaurant < ActiveRecord::Base
   has_many :lists, :through => :authorizations
   has_many :bans
   has_many :banned_users, :through => :bans, :class_name => 'User', :foreign_key => :user_id
+  has_many :grants, :as => :scope
+  has_many :users, :through => :grants
+  
   
   def listings
     lists.map(&:listings)

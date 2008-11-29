@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :grants
+
+  map.resources :permissions
+
   map.resources :meals
 
   map.resources :bans
@@ -10,9 +14,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :lists do |list|
     list.resources :users
     list.resources :authorizations
+    list.resources :grants
   end
 
-  map.resources :restaurants
+  map.resources :restaurants do |restaurant|
+    restaurant.resources :grants
+  end
 
   map.resources :users
   

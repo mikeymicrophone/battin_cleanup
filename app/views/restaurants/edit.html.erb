@@ -1,4 +1,9 @@
-<h1>Editing restaurant</h1>
+<h1>managing <%= link_to_name @restaurant %></h1>
+
+<% @restaurant.users.each do |u| %>
+  <%= link_to_name u %><br>
+<% end %>
+<%= link_to 'authorize another person to manage ' + @restaurant.name, new_restaurant_grant_path(@restaurant, :permission_id => Permission.to(:manage)) %>
 
 <% form_for(@restaurant) do |f| %>
   <%= f.error_messages %>

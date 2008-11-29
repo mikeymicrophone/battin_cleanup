@@ -1,16 +1,20 @@
-<h1>Editing list</h1>
+<h1>managing <%= link_to_name @list %></h1>
+
+<% @list.users.each do |u| %>
+  <%= link_to_name u %><br>
+<% end %>
+
+<%= link_to 'authorize another person to manage ' + @list.name, new_list_grant_path(@list, :permission_id => Permission.to(:manage)) %>
+
 
 <% form_for(@list) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, 'name' %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "rename" %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @list %> |
-<%= link_to 'Back', lists_path %>

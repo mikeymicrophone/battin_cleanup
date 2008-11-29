@@ -1,5 +1,11 @@
 <p>
   <%=h @user.first_name %> <%=h @user.middle_name %> <%=h @user.last_name %>
 </p>
-
-<%= link_to 'Back', users_path %>
+<hr>
+<% @user.managed_restaurants.each do |r| %>
+  <%= link_to_name r %>
+<% end %>
+<hr>
+<% @user.managed_lists.each do |l| %>
+  <%= link_to_name l %>
+<% end %>

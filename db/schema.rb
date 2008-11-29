@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081126212731) do
+ActiveRecord::Schema.define(:version => 20081129205036) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "list_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20081126212731) do
   create_table "bans", :force => true do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "grants", :force => true do |t|
+    t.integer  "permission_id"
+    t.integer  "user_id"
+    t.string   "scope_type"
+    t.integer  "scope_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +52,12 @@ ActiveRecord::Schema.define(:version => 20081126212731) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "capacity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

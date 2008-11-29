@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  permission_id: 1
+  user_id: 1
+  scope_type: MyString
+  scope_id: 1
+
+two:
+  permission_id: 1
+  user_id: 1
+  scope_type: MyString
+  scope_id: 1
