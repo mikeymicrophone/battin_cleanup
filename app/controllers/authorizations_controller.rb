@@ -30,8 +30,8 @@ class AuthorizationsController < ApplicationController
   def new
     @authorization = Authorization.new
     
-    @lists = List.all.map { |l| [l.name, l.id] }
-    @restaurants = Restaurant.all.map { |r| [r.name, r.id] }
+    @lists = current_user.managed_lists.map_name_and_id
+    @restaurants = current_user.managed_restaurants.map_name_and_id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,6 +48,8 @@ class AuthorizationsController < ApplicationController
   # POST /authorizations.xml
   def create
     @authorization = Authorization.new(params[:authorization])
+    
+    redirect_to @authorization.restaurant && return unless current_user && current_user.has_permission_to?(:manage, @authorization.restaurant)
 
     respond_to do |format|
       if @authorization.save
@@ -65,6 +67,7 @@ class AuthorizationsController < ApplicationController
   # PUT /authorizations/1.xml
   def update
     @authorization = Authorization.find(params[:id])
+    redirect_to @authorization.restaurant && return unless current_user && current_user.has_permission_to?(:manage, @authorization.restaurant)
 
     respond_to do |format|
       if @authorization.update_attributes(params[:authorization])
@@ -82,6 +85,7 @@ class AuthorizationsController < ApplicationController
   # DELETE /authorizations/1.xml
   def destroy
     @authorization = Authorization.find(params[:id])
+    redirect_to @authorization.restaurant && return unless current_user && current_user.has_permission_to?(:manage, @authorization.restaurant)
     @authorization.destroy
 
     respond_to do |format|

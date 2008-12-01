@@ -35,6 +35,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1/edit
   def edit
     @restaurant = Restaurant.find(params[:id])
+    redirect_to @restaurant && return unless current_user && current_user.has_permission_to?(:manage, @restaurant)
   end
 
   # POST /restaurants
@@ -59,6 +60,7 @@ class RestaurantsController < ApplicationController
   # PUT /restaurants/1.xml
   def update
     @restaurant = Restaurant.find(params[:id])
+    redirect_to @restaurant && return unless current_user && current_user.has_permission_to?(:manage, @restaurant)
 
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
@@ -76,6 +78,7 @@ class RestaurantsController < ApplicationController
   # DELETE /restaurants/1.xml
   def destroy
     @restaurant = Restaurant.find(params[:id])
+    redirect_to @restaurant && return unless current_user && current_user.has_permission_to?(:manage, @restaurant)
     @restaurant.destroy
 
     respond_to do |format|

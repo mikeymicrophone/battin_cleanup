@@ -34,6 +34,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
+    redirect_to @list && return unless current_user && current_user.has_permission_to?(:manage, @list)
     @list = List.find(params[:id])
   end
 
@@ -59,7 +60,8 @@ class ListsController < ApplicationController
   # PUT /lists/1.xml
   def update
     @list = List.find(params[:id])
-
+    redirect_to @list && return unless current_user && current_user.has_permission_to?(:manage, @list)
+    
     respond_to do |format|
       if @list.update_attributes(params[:list])
         flash[:notice] = 'List was successfully updated.'
@@ -76,6 +78,7 @@ class ListsController < ApplicationController
   # DELETE /lists/1.xml
   def destroy
     @list = List.find(params[:id])
+    redirect_to @list && return unless current_user && current_user.has_permission_to?(:manage, @list)
     @list.destroy
 
     respond_to do |format|

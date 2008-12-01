@@ -37,6 +37,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    redirect_to @listing && return unless current_user && current_user.has_permission_to?(:manage, @listing.list)
     @listing = Listing.find(params[:id])
   end
 
@@ -44,7 +45,8 @@ class ListingsController < ApplicationController
   # POST /listings.xml
   def create
     @listing = Listing.new(params[:listing])
-
+    redirect_to list_path(@listing.list) && return unless current_user && current_user.has_permission_to?(:manage, @listing.list)
+    
     respond_to do |format|
       if @listing.save
         flash[:notice] = 'Listing was successfully created.'
@@ -61,6 +63,7 @@ class ListingsController < ApplicationController
   # PUT /listings/1.xml
   def update
     @listing = Listing.find(params[:id])
+    redirect_to list_path(@listing.list) && return unless current_user && current_user.has_permission_to?(:manage, @listing.list)
 
     respond_to do |format|
       if @listing.update_attributes(params[:listing])
@@ -78,6 +81,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1.xml
   def destroy
     @listing = Listing.find(params[:id])
+    redirect_to list_path(@listing.list) && return unless current_user && current_user.has_permission_to?(:manage, @listing.list)
     @listing.destroy
 
     respond_to do |format|

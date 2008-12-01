@@ -47,9 +47,9 @@ class User < ActiveRecord::Base
   
   def has_permission_to?(action, scope = nil)
     unless scope
-      Grant.find_by_permission_id_and_user_id(Permission.find_by_name(action).id, id)
+      Grant.find_by_permission_id_and_user_id(Permission.to(action), id)
     else
-      Grant.find_by_permission_id_and_user_id_and_scope_type_and_scope_id(Permission.find_by_name(action).id, id, scope.class.name, scope.id)
+      Grant.find_by_permission_id_and_user_id_and_scope_type_and_scope_id(Permission.to(action), id, scope.class.name, scope.id)
     end
   end
   

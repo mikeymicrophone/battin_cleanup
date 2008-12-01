@@ -24,3 +24,15 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
 end
+
+class ActiveRecord::Base
+  def self.map_name_and_id
+    all.map { |a| [a.name, a.id] }
+  end
+end
+
+class Array
+  def map_name_and_id
+    map { |a| [a.name, a.id] }
+  end
+end
