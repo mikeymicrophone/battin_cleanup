@@ -26,8 +26,7 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new params[:listing]
     
-    @lists = List.all.map { |l| [l.name, l.id] }
-    @users = User.all.map { |u| [u.name, u.id] }
+    @lists = current_user.managed_lists.map_name_and_id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,6 +52,7 @@ class ListingsController < ApplicationController
         format.html { redirect_to(@listing) }
         format.xml  { render :xml => @listing, :status => :created, :location => @listing }
       else
+        @lists = current_user.managed_lists.map_name_and_id
         format.html { render :action => "new" }
         format.xml  { render :xml => @listing.errors, :status => :unprocessable_entity }
       end

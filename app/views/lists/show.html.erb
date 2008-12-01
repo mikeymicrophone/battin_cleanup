@@ -1,10 +1,9 @@
 <p>
-  <b>Name:</b>
-  <%=h @list.name %>
+  <b><%=h @list.name %></b> <%= link_to 'edit', edit_list_path(@list) if current_user && current_user.has_permission_to(:manage, @list) %>
 </p>
 
 <% @list.users.each do |u| %>
-  <%= link_to_name u %>
+  <%= link_to_name u %><br>
 <% end %>
 
 <%= link_to 'add someone', new_listing_path(:listing => {:list_id => @list}) %>

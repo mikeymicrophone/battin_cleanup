@@ -3,9 +3,14 @@
 <% form_for(@meal) do |f| %>
   <%= f.error_messages %>
 
+	<% unless @meal.restaurant %>
   <p>
     <%= f.select :restaurant_id, @restaurants %><%= f.label :restaurant_id, 'restaurant' %>
   </p>
+	<% else %>
+	  <%= link_to_name @meal.restaurant %>
+	  <%= f.hidden_field :restaurant_id %>
+	<% end %>
   <p>
     <%= f.datetime_select :start_time %><%= f.label :start_time, 'starting at' %>
   </p>

@@ -24,9 +24,11 @@ class MealsController < ApplicationController
   # GET /meals/new
   # GET /meals/new.xml
   def new
-    @meal = Meal.new
+    params[:meal] ||= {}
+    params[:meal][:restaurant_id] ||= params[:restaurant_id]
+    @meal = Meal.new params[:meal]
     
-    @restaurants = Restaurant.all.map { |r| [r.name, r.id] }
+    @restaurants = current_user.managed_restaurants.map_name_and_id
 
     respond_to do |format|
       format.html # new.html.erb

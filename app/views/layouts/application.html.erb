@@ -7,19 +7,23 @@
   <title>battin cleanup</title>
   <%= stylesheet_link_tag 'cleanup' %>
 </head>
-<body>
-	<div class="login"><%= login_stuff %></div>
-	<div id="navigation">
-		<li class="nav"><%= link_to 'about this project', '/about.html' %></li>
-		<li class="nav"><%= link_to 'users', users_path %></li>
-		<li class="nav"><%= link_to 'restaurants', restaurants_path %></li>
-		<li class="nav"><%= link_to 'lists', lists_path %></li>
-		<li class="nav"><%= link_to 'authorizations', authorizations_path %></li>
-		<li class="nav"><%= link_to 'listings', listings_path %></li>
-		<li class="nav"><%= link_to 'meals', meals_path %></li>
-		<li class="nav"><%= link_to 'bans', bans_path %></li>
+<body id="cleanup">
+	<div id="main">
+		<div class="login"><%= login_stuff %></div>
+		<div id="navigation">
+			<li class="nav"><%= link_to 'about this project', '/about.html' %></li>
+			<li class="nav"><%= link_to 'users', users_path %></li>
+			<li class="nav"><%= link_to 'restaurants', restaurants_path %></li>
+			<li class="nav"><%= link_to 'lists', lists_path %></li>
+			<li class="nav"><%= link_to 'authorizations', authorizations_path %></li>
+			<li class="nav"><%= link_to 'listings', listings_path %></li>
+			<li class="nav"><%= link_to 'meals', meals_path %></li>
+			<li class="nav"><%= link_to 'bans', bans_path %></li>
+		</div>
+		<div class="clearfix"></div>
+		<div id="center">
+  		<%= yield %>
+		</div>
 	</div>
-	<div class="clearfix"></div>
-	<%= yield %>
 </body>
 </html>

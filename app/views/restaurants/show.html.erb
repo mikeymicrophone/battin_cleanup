@@ -1,5 +1,7 @@
 <p>
   <h2><%=h @restaurant.name %></h2>
+  <%= link_to 'edit', edit_restaurant_path(@restaurant) if current_user && current_user.has_permission_to?(:manage, @restaurant) %>
+  <%= link_to 'schedule meal', new_restaurant_meal_path(@restaurant) if current_user && current_user.has_permission_to?(:manage, @restaurant) %>
 </p>
 
 <p>

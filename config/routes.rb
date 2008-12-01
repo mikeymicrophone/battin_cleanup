@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :restaurants do |restaurant|
     restaurant.resources :grants
+    restaurant.resources :meals
   end
 
   map.resources :users

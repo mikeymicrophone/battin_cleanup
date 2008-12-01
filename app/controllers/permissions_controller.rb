@@ -33,9 +33,9 @@ class PermissionsController < ApplicationController
   end
 
   # GET /permissions/1/edit
-  def edit
-    @permission = Permission.find(params[:id])
-  end
+  # def edit
+  #   @permission = Permission.find(params[:id])
+  # end
 
   # POST /permissions
   # POST /permissions.xml

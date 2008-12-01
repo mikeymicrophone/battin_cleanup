@@ -3,12 +3,16 @@
 <% form_for(@grant) do |f| %>
   <%= f.error_messages %>
 
+  <%= f.hidden_field :permission_id %>
+
+	<% if @grant.scope %>
+	  these users are authorized currently:<br>
+	  <% @grant.scope.users.each do |u| %>
+		  <%= link_to_name u %><br>
+	  <% end %>
+	<% end %>
+
   <p>
-    <%= f.label :permission_id %><br />
-    <%= f.select :permission_id, @permissions %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
     <%= f.select :user_id, @users %>
   </p>
   <%= f.hidden_field :scope_type %>

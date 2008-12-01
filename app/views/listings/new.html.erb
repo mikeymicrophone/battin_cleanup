@@ -4,7 +4,7 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.select :user_id, @users %><%= f.label :user_id, 'who' %>
+    <%= f.select :user_id, User.map_name_and_id %><%= f.label :user_id, 'who' %>
   </p>
   <p>
     <%= f.select :list_id, @lists %><%= f.label :list_id, 'which list' %>

@@ -1,3 +1,24 @@
+#center {
+	font-family: arial;
+}
+
+#center a {
+	color: #603517;
+	text-decoration: none;
+}
+
+#center a:hover {
+	text-decoration: underline;
+}
+
+#center form {
+	font-family: arial;
+	border: 2px solid black;
+	padding: 30px;
+	width: 450px;
+	margin-left: 90px;
+}
+
 #title {
 	font-family: arial;
 	font-style: italic;
