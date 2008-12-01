@@ -44,6 +44,7 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
+        current_user.has_permission_to(:manage, @restaurant)
         flash[:notice] = 'Restaurant was successfully created.'
         format.html { redirect_to(@restaurant) }
         format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }

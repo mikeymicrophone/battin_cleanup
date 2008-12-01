@@ -3,10 +3,21 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  before_filter :user_from_session
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '31529139c92959bb6d3f69c49556499e'
+  attr_accessor :current_user
+  helper_method :current_user
+
+  def logged_in?
+    current_user
+  end
+  
+  def user_from_session
+    self.current_user = session[:user]
+  end
   
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters

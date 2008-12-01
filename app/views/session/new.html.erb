@@ -1,0 +1,5 @@
+<% form_tag :controller => :session, :action => :create, :method => :post do %>
+	<%= text_field :user, :name %>last name<br>
+	<%= password_field :user, :password %>password<br>
+	<%= submit_tag :login %>
+<% end %>

@@ -44,6 +44,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
+        current_user.has_permission_to(:manage, @list)
         flash[:notice] = 'List was successfully created.'
         format.html { redirect_to(@list) }
         format.xml  { render :xml => @list, :status => :created, :location => @list }

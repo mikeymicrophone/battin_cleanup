@@ -7,4 +7,13 @@ module ApplicationHelper
       link_to obj.send(method), obj, :class => 'name'
     end
   end
+  
+  def login_stuff
+    if current_user
+      link_to 'logout', logout_path
+    else
+      link_to('sign up', new_user_path) +
+      link_to('log in', login_path)
+    end
+  end
 end

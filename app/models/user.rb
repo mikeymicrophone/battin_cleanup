@@ -52,4 +52,8 @@ class User < ActiveRecord::Base
       Grant.find_by_permission_id_and_user_id_and_scope_type_and_scope_id(Permission.find_by_name(action).id, id, scope.class.name, scope.id)
     end
   end
+  
+  def has_permission_to(action, scope = nil)
+    grants.create(:permission_id => Permission.to(action), :scope => scope)
+  end
 end

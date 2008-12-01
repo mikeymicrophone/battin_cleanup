@@ -105,3 +105,11 @@
 .clearfix {
 	clear:both;
 }
+
+.login {
+	float:right;
+}
+
+.login a {
+	padding-left: 4px;
+}
